@@ -1,39 +1,20 @@
 package com.example.springdemo2;
 
+import com.example.springdemo2.customer.Customer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
 public class Springdemo2Application {
 
     public static void main(String[] args) {
+
+        //This is the main class of our application form which the Spring Boot application will get executed.
+        //It creates an appropriate ApplicationContext instance and load beans.
         SpringApplication.run(Springdemo2Application.class, args);
     }
-
-    @GetMapping
-    Customer getCustomer(){
-        return new Customer(1l,"ram");
-    }
-
 }
 
-class Customer{
-    private final Long id;
-    private final String name;
 
-    public Customer(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-}
