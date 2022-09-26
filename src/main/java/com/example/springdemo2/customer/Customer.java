@@ -1,5 +1,8 @@
 package com.example.springdemo2.customer;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 //model
 public class Customer{
     private final Long id;
@@ -13,18 +16,17 @@ public class Customer{
     }
 //the properties are comming from these getter and setters which are seen in ui
 
+    @JsonProperty("customer_id")
     public Long getId() {
         return id;
     }
 
-    public Long getCustomerId(){
-        return id;
-    }
 
     public String getName() {
         return name;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }

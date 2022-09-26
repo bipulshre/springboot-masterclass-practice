@@ -16,6 +16,6 @@ public class CustomerRepository implements CustomerRepo {
         //TODO connect to real db
         return Collections.singletonList(
                 new Customer(1L,"todo name", "todo password")
-        )
+        );
     }
 }
