@@ -3,23 +3,26 @@ package com.example.springdemo2.customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
-@RequestMapping(path = "api/v1/customer")
+@RequestMapping(path = "api/v2/customer")
 @RestController //handle http request
-public class CustomerController {
+public class CustomerControllerV2 {
 
     private final CustomerService customerService;
 
     @Autowired //we want to inject customerService here
-    public CustomerController(CustomerService customerService) {
+    public CustomerControllerV2(CustomerService customerService) {
         this.customerService = customerService;
 
     }
 
     @GetMapping(value = "all") //for requesting data
     List<Customer> getCustomer(){
-        return customerService.getCustomer();
+        return Arrays.asList(
+                new Customer(1l, "RAM","PAS")
+        );
     }
 
     //post for sending data, put for updating data, delete to delete data
