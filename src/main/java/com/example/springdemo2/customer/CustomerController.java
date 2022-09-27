@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequestMapping(path = "api/v1/customer")
 @RestController //handle http request
 public class CustomerController {
 
@@ -16,7 +17,7 @@ public class CustomerController {
 
     }
 
-    @GetMapping //for requesting data
+    @GetMapping(value = "all") //for requesting data
     List<Customer> getCustomer(){
         return customerService.getCustomer();
     }
